@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+}
+
+body{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.App{
+  height: 100vh;
+  background-color: #F8F9FA;
+  display:grid;
+  place-items: center;
+}
+
+.appbd{
+  height:100vh;
+  width: 100vw;
+  background-color: #F8F9FA;
+  display: flex;
+}
