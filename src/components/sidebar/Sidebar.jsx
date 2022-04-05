@@ -35,8 +35,11 @@ function Sidebar() {
                 
                 <div className='sidebar_Hright'>
                     <IconButton><ChatIcon /></IconButton>
-                    <IconButton><MoreVertIcon /></IconButton>
+                    <IconButton>
+                        <MoreVertIcon />
+                    </IconButton>
                 </div>
+
             </div>
 
             <div className='sidebar_search'>

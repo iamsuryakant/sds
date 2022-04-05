@@ -4,7 +4,7 @@ import { Avatar, IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import AttachmentIcon from '@mui/icons-material/Attachment';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import { db } from '../../firebase';
 import firebase from 'firebase/compat/app';
@@ -22,6 +22,16 @@ function Chat() {
     const [messages, setMessages] = useState([]);
 
     const [{user}, dispatch] = useStateValue();
+
+
+    // var CryptoJS = require("crypto-js");
+
+    // var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123');
+    // console.log("encrypted text", ciphertext.toString());
+
+    // var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+    // var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+    // console.log("decrypted text", plaintext);
 
     useEffect(() => {
         if (roomId)
@@ -52,6 +62,15 @@ function Chat() {
             message: input,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
+
+        var CryptoJS = require("crypto-js");
+
+        var ciphertext = CryptoJS.AES.encrypt(input, 'secret key 123');
+        console.log(ciphertext.toString());
+
+        var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+        var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+        console.log("decrypted text", plaintext);
 
         setInput("");
 
@@ -118,7 +137,7 @@ function Chat() {
                 </IconButton>
 
                 <IconButton>
-                    <AttachmentIcon />
+                    <AttachFileIcon />
                 </IconButton>
 
                 <form onSubmit = {sendMessage}>
